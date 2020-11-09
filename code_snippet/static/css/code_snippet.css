@@ -1,0 +1,9 @@
+/* CSS for CodeSnippetXBlock */
+
+.code_snippet_block .count {
+    font-weight: bold;
+}
+
+.code_snippet_block p {
+    cursor: pointer;
+}
