@@ -18,6 +18,7 @@
 
 .code_snippet_block code {
     font-size: 14px;
+    line-height: 1.4;
 }
 
 .code_snippet_block .code-select {
@@ -27,9 +28,13 @@
     bottom: 0;
     width: 100%;
     resize: none;
+    height: auto;
     background-color: transparent;
     color: transparent;
     caret-color: #ffffff;
     border: none;
-    font-size: 14px;
+    font: normal 14px Monospace;
+    line-height: 1.4;
+    box-shadow: none;
+    overflow: hidden;
 }
