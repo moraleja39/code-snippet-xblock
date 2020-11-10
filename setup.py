@@ -85,8 +85,8 @@ setup(
     version=VERSION,
     description="""Code Snippet XBlock""",
     long_description=README + '\n\n' + CHANGELOG,
-    author='edX',
-    author_email='oscm@edx.org',
+    author='David Oviedo',
+    author_email='moraleja39@gmail.com',
     url='https://github.com/edx/code-snippet-xblock',
     packages=[
         'code_snippet',

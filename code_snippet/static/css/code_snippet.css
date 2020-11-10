@@ -1,9 +1,35 @@
 /* CSS for CodeSnippetXBlock */
 
-.code_snippet_block .count {
-    font-weight: bold;
+.code_snippet_block {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
 }
 
-.code_snippet_block p {
-    cursor: pointer;
+.code_snippet_block * {
+    box-sizing: border-box;
+}
+
+.code_snippet_block pre {
+    margin: 0;
+    white-space: pre;
+    position: relative;
+}
+
+.code_snippet_block code {
+    font-size: 14px;
+}
+
+.code_snippet_block .code-select {
+    position: absolute;
+    top: 0; left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    resize: none;
+    background-color: transparent;
+    color: transparent;
+    caret-color: #ffffff;
+    border: none;
+    font-size: 14px;
 }

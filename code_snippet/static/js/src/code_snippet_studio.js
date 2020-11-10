@@ -1,6 +1,14 @@
 /* Javascript for CodeSnippetXBlock. */
 function CodeSnippetStudioXBlock(runtime, element) {
 
+  // XBlock workbench runtime does not provide a notify function.
+  //  In that scenario, simply log whatever the arguments are
+  if (!runtime.notify) {
+    runtime.notify = function () {
+      console.log(arguments)
+    };
+  }
+
   function submit(data) {
     runtime.notify('save', {state: 'start', message: gettext("Saving")});
     var handlerUrl = runtime.handlerUrl(element, 'submit_studio_edits');
@@ -34,5 +42,9 @@ function CodeSnippetStudioXBlock(runtime, element) {
   $(element).find(".cancel-button").on('click', (e) => {
     e.preventDefault();
     runtime.notify('cancel', {});
+  });
+
+  $(() => {
+    $el.find("#code").select().focus();
   });
 }

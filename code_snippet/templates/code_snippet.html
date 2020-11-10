@@ -1,5 +1,3 @@
 <div class="code_snippet_block"{% if max_height > 0 %} style="max-height: {{max_height}}px; overflow: auto"{% endif %}>
-    <pre>
-        <code{% if lang != "" %} class="language-{{ lang }}"{% endif %}>{{ code }}</code>
-    </pre>
+    <pre><code{% if lang != "" %} class="language-{{ lang }}"{% endif %}>{{ code }}</code><textarea autocomplete="off" spellcheck="false" readonly class="code-select hljs">{{ code }}</textarea></pre>
 </div>

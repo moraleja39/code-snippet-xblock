@@ -1,5 +1,3 @@
-"""TO-DO: Write a description of what this XBlock is."""
-
 import pkg_resources
 
 from django.utils import translation
@@ -12,6 +10,34 @@ from .supported_languages import SUPPORTED_LANGUAGES
 import logging
 logger = logging.getLogger(__name__)
 
+CODE_SAMPLE = '''/* Javascript for CodeSnippetXBlock. */
+function CodeSnippetXBlock(runtime, element) {
+
+    function updateCount(result) {
+        $('.count', element).text(result.count);
+    }
+
+    var handlerUrl = runtime.handlerUrl(element, 'increment_count');
+
+    $('p', element).click(function(eventObject) {
+        $.ajax({
+            type: 'POST',
+            url: handlerUrl,
+            data: JSON.stringify({'hello': 'world'}),
+            success: updateCount
+        });
+    });
+
+    $(function ($) {
+        /*
+        Use `gettext` provided by django-statici18n for static translations
+
+        var gettext = CodeSnippetXBlocki18n.gettext;
+        */
+
+        /* Here's where you'd do things on page load. */
+    });
+}'''
 _ = translation.gettext
 
 loader = ResourceLoader(__name__)
@@ -21,6 +47,7 @@ class CodeSnippetXBlock(XBlock):
     display_name = String(default=_("Code Snippet"), scope=Scope.settings)
     max_height = Integer(default=0)
     code = String(default=u'// Your code goes here', scope=Scope.content)
+    #code = String(default=CODE_SAMPLE, scope=Scope.content)
     lang = String(default=u'', scope=Scope.content)
 
     non_editable_metadata_fields = ['code']
@@ -60,7 +87,7 @@ class CodeSnippetXBlock(XBlock):
 
         frag.add_javascript(self.resource_string("static/js/src/code_snippet.js"))
         frag.add_javascript_url("//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js")
-        frag.initialize_js('CodeSnippetXBlock')
+        frag.initialize_js('CodeSnippetXBlock', self._get_context())
         return frag
 
     def studio_view(self, context=None):
@@ -94,9 +121,8 @@ class CodeSnippetXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("CodeSnippetXBlock",
-             """<code_snippet/>
-             """),
+            #("CodeSnippetXBlock", u"<code_snippet code=\"{}\"></code_snippet>".format(CODE_SAMPLE)),
+            ("CodeSnippetXBlock", """<code_snippet max_height="0"></code_snippet>"""),
             ("Multiple CodeSnippetXBlock",
              """<vertical_demo>
                 <code_snippet code="var a = 1"></code_snippet>
