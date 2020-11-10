@@ -1,0 +1,54 @@
+{% load i18n %}
+<div class="editor-with-buttons">
+    <div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+
+
+        <ul class="list-input settings-list">
+
+            <li class="field comp-setting-entry is-set">
+                <div class="wrapper-comp-setting">
+                    <label class="label setting-label" for="code">{% trans "Code" %} </label>
+                    <textarea name="code" id="code" rows="15">{{ code }}</textarea>
+                </div>
+
+            </li>
+
+            <li class="field comp-setting-entry is-set">
+                <div class="wrapper-comp-setting">
+                    <label class="label setting-label" for="lang">{% trans "Language" %} </label>
+                    <select name="lang" id="lang">
+                        <option value=""{%if lang == "" %} selected{% endif %}>{% trans "Auto" %}</option>
+                        {% for lang_name, lang_code in supported_languages %}
+                        <option value="{{ lang_code }}"{%if lang == lang_code %} selected{% endif %}>{{ lang_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </li>
+
+            <li class="field comp-setting-entry is-set">
+                <div class="wrapper-comp-setting">
+                    <label class="label setting-label" for="max-height">{% trans "Max height" %} </label>
+                    <input class="input setting-input" name="max-height" id="max-height" value="{{ max_height }}"
+                           type="number" min="0">
+                </div>
+                <span class="tip setting-help">{% trans "In px, 0 means unlimited" %}</span>
+            </li>
+
+        </ul>
+
+
+    </div>
+
+    <div class="xblock-actions">
+        <ul>
+            <li class="action-item">
+                <a href="#" class="button action-primary save-button">{% trans "Save" %}</a>
+            </li>
+
+            <li class="action-item">
+                <a href="#" class="button cancel-button">{% trans "Cancel" %}</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
