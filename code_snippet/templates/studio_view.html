@@ -15,7 +15,8 @@
 
             <li class="field comp-setting-entry is-set">
                 <div class="wrapper-comp-setting">
-                    <label class="label setting-label" for="lang">{% trans "Language" %} </label>
+                {# Translators: Programming (not human) language#}
+                    <label class="label setting-label" for="lang">{% trans "Language" context "programming language" %} </label>
                     <select name="lang" id="lang">
                         <option value=""{%if lang == "" %} selected{% endif %}>{% trans "Auto" %}</option>
                         {% for lang_name, lang_code in supported_languages %}

@@ -20,17 +20,17 @@ msgstr ""
 
 #: code_snippet.py:47
 msgid "Code Snippet"
-msgstr ""
+msgstr "Fragmento de código"
 
 #: templates/studio_view.html:10
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. Translators: Programming (not human) language
 #: templates/studio_view.html:19
 msgctxt "programming language"
 msgid "Language"
-msgstr ""
+msgstr "Lenguaje"
 
 #: templates/studio_view.html:21
 msgid "Auto"
@@ -38,19 +38,19 @@ msgstr ""
 
 #: templates/studio_view.html:31
 msgid "Max height"
-msgstr ""
+msgstr "Altura máxima"
 
 #: templates/studio_view.html:35
 msgid "In px, 0 means unlimited"
-msgstr ""
+msgstr "En px, 0 para ilimitada"
 
 #: templates/studio_view.html:46
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: templates/studio_view.html:50
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: static/js/src/code_snippet_studio.js:13
 msgid "Saving"

@@ -1,6 +1,7 @@
 import pkg_resources
 
 from django.utils import translation
+from django.utils.translation import ugettext_lazy as _
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, String
 from web_fragments.fragment import Fragment
@@ -38,13 +39,12 @@ function CodeSnippetXBlock(runtime, element) {
         /* Here's where you'd do things on page load. */
     });
 }'''
-_ = translation.gettext
 
 loader = ResourceLoader(__name__)
 
 @XBlock.needs("i18n")
 class CodeSnippetXBlock(XBlock):
-    display_name = String(default=_("Code Snippet"), scope=Scope.settings)
+    display_name = String(default="Code Snippet", scope=Scope.settings)
     max_height = Integer(default=0)
     code = String(default=u'// Your code goes here', scope=Scope.content)
     #code = String(default=CODE_SAMPLE, scope=Scope.content)
